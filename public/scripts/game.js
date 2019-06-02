@@ -46,6 +46,9 @@ function createObj(){
     for(i = 0; i < 10000; i++){
         var randX = Math.floor(Math.random() * MAP_WIDTH );
         var randY = Math.floor(Math.random() * MAP_HEIGHT );
+        if((randX > 300 && randX < 500) || (randY < 300 && randY > 500)){
+            continue;
+        }
         var obj = new Obj(randX,randY, 50, 50);
         allObj.push(obj);
     }
