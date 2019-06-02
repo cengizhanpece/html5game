@@ -13,3 +13,14 @@ Player.prototype.draw = function(x,y){
     ctx.fillRect(x, y, this.width, this.height);
     ctx.fillText ( name + " " + this.x + " " + this.y, x, y)
 }
+
+Player.prototype.collide = function(allObj, camera, x, y){
+    for(i = 0; i < allObj.length; i++){
+        if(camera.isDrawing(allObj[i])){
+            if((allObj[i].x <= x + this.width && allObj[i].x + allObj[i].width >= x) && (allObj[i].y <= y + this.height && allObj[i].y + allObj[i].height >= y)){
+                return true;
+            }
+        }
+    }
+    return false;
+}
